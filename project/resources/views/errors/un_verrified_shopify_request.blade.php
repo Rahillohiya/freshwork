@@ -12,237 +12,151 @@
         {{--<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>--}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link href="{{ URL::asset('css/appdesign/css/login.css', null, true) }}" rel="stylesheet" type="text/css"/>
-        <style>
-
-            /*******************************************************/
-
-            body {
-                background: #F1F2F3;
-            }
-
-            .parent-div-login-page {
-                /*height: 100%;*/
-                /*display: flex;*/
-                /*justify-content: center;*/
-                /*align-items: center;*/
-            }
-
-            .wrapper-div-login-page {
-                display: flex;
-                justify-content: center;
-                min-height: 100vh;
-                align-items: center;
-                /*margin: 30px 0;*/
-            }
-
-            .error-template {
-                padding: 10px 0 10px 20px;
-                margin: 10px 0;
-            }
-
-            .error-template h2 > span {
-                padding-right: 5px;
-            }
-
-            .login-form-style form {
-                margin: 0;
-            }
-
-            .main-content-div-login-page {
-                /* border: 1px solid #efecec; */
-                border-radius: 10px;
-                /*box-shadow: 0 15px 30px 0 rgba(0,0,0,.11), 0 5px 15px 0 rgba(0,0,0,.08);*/
-                background: #fff;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-
-            .login-form-wraper {
-                padding: 1.5em;
-            }
-
-            .app-logo {
-                margin: 0 auto;
-                width: 80px;
-                height: 80px;
-
-            }
-
-            .app-logo img {
-                width: 100%;
-                border-radius: 50%;
-            }
-
-            .login-form-style {
-                padding: 10px 0 0px;
-            }
-
-            .login-form-style .form-title {
-                font-size: 18px;
-                padding: 30px 0;
-                text-align: center;
-            }
-
-            .login-form-style .form-title h4 {
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-
-            .login-form-style .form-body {
-                /*margin-bottom: 20px;*/
-            }
-
-            .login-form-style .form-body p {
-                font-size: 12px;
-                color: #333;
-            }
-
-            .input-style-login-page {
-                border: 1px solid #ccc;
-                margin: 10px 0px 0 0 !important;
-            }
-
-            .login-form-style .input-style-login-page input {
-                border: 0;
-                height: 50px;
-                box-shadow: none;
-                float: left;
-                background: #f1f5f8;
-
-            }
-
-            .inner-input-login-page {
-                width: 75%;
-            }
-
-            .login-form-style .input-style-login-page input:focus, .login-form-style .input-style-login-page input:hover {
-
-                background-color: #fff;
-            }
-
-            .wrapper-div-login-page .login-btn input {
-                padding: 10px 15px;
-                font-size: 15px;
-                border: none;
-                width: 25%;
-                font-weight: 500;
-                letter-spacing: 0;
-                background: #008060;
-                /* background: no-repeat; */
-                color: #fff;
-                border-left: 1px solid #ccc;
-                border-radius: 0;
-            }
-
-            .wrapper-div-login-page .login-btn input:hover {
-                background: #008060;
-            }
-
-            .wrapper-div-login-page .form-footer {
-                background: #f4eaff;
-                padding: 20px 40px;
-                border-radius-right-bottom: 10px;
-                width: 100%;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-
-            @media screen and (max-width: 480px) {
-                .login-form-wraper {
-                    padding: 1em;
-                }
-
-                .error-template h2 {
-                    font-size: 12px;
-                }
-
-                .wrapper-div-login-page .form-footer {
-                    padding: 20px 15px;
-                    font-size: 12px;
-                }
-
-                .input-style-login-page {
-                    display: flex;
-                }
-
-                .inner-input-login-page {
-                    width: 100%;
-                }
-
-                .login-form-style .input-style-login-page input {
-                    height: 40px;
-                    padding: 6px 10px;
-                }
-
-                .wrapper-div-login-page .login-btn input {
-                    padding: 6px 10px;
-                    width: auto;
-                }
-
-            }
-
-        </style>
+        
     </head>
     <body>
-        <div class="loginWrapper">
-            <div class="container parent-div-login-page">
-                <div class="row">
-                    <div class="wrapper-div-login-page">
-
-                        <div class="col-md-8 col-12">
-                            <div class="main-content-div-login-page">
-                                <div class="login-form-wraper">
-                                    <div class="app-logo">
-                                        <img src="{{ asset('cdn/icon.png') }}">
+        <section class="py-5 bg-images d-flex"> 
+            <div class="container-fluid d-flex">
+                <div class="row align-items-center" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center;">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div style="justify-content: center;display: flex;flex-wrap: wrap;">
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/5cb480cd5f1b6d3fbadece79.png') }}" class="img-fluid" alt="">
                                     </div>
-                                    @if(!isset($login_section_not_required))
-                                        <div class="login-form-style">
-                                            <div class="form-title">
-                                                <h4 class="">Login</h4>
-                                            </div>
-                                            <div class="form-body">
-                                                <form class="form-horizontal" role="form" action="{{ route('install') }}"
-                                                      method="get">
-                                                    <p>The URL of the Shop (enter it exactly like this: myshop.myshopify.com)
-                                                        :</p>
-
-                                                    <div class="form-group input-style-login-page">
-                                                        <div class="inner-input-login-page">
-                                                            <input type="text" name="shop" id="shop" class="form-control"
-                                                                   required="" placeholder="myshop.myshopify.com">
-                                                        </div>
-                                                        <div class="login-btn">
-                                                            <input type="submit" value="Login or Install"
-                                                                   class="btn btn-success btn-sm">
-
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                            @endif
-                                        </div>
-                                        <div class="error-template alert alert-warning">
-
-                                            <h2>
-                                                <span><b>Oops!</b></span>
-                                                {{ $notice ??'Request Not Verified!' }}
-                                                {{ $message ??'Please restart the app from apps listing in admin panel.' }}
-                                            </h2>
-
-                                        </div>
                                 </div>
-                                @if(!isset($login_section_not_required))
-                                    <div class="form-footer">
-                                        Are you using Safari or google chrome incognito mode? Please upgrade to your latest
-                                        version for safari while enable cookies for third party app in google chrome settings.
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/Google_Sheets_2020_Logo.svg.png') }}" style="width: 31px;"
+                                            class="img-fluid" alt="">
                                     </div>
-                                @endif
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/twilio_logo_2c883610a9.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/Mail.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/_8XBlvMyDTQiE0Ez49lHjPg_4AaEfOiSQ622mu_oN0vqeA_app_qbpne1ppRXCtNLHekBws-A_peUlz7vIRWCVi1IWQ9JlIw.png ') }}"
+                                            class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/post_to_url.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/mysql.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/hubspot.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/mailchimp.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/freshworks.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/salesforce.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/quickbooks_online.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/zoho_crm.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/zoho_books.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/dropbox.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/lob.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/klaviyo.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/elastic_email.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/marketo.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="icon-inner">
+                                        <img src="{{ asset('assets/images/iContact.png') }}" class="img-fluid" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-7">
+                        <div class="login-inner">
+                            @if(!isset($login_section_not_required))
+                            <div class="login-from text-center">
+                                <img src="{{ asset('assets/images/629b6c1a7c5cd817694c321c.png') }}" class="img-fluid" alt="">
+                                <h3>LOGIN</h3>
+                                <p>The URL of the Shop (enter it exactly like this: myshop.myshopify.com). </p>
+                            </div>
+                            <div>
+                                <form role="form" action="{{ route('install') }}" method="get">
+                                    <input type="text" placeholder="myshop.myshopify.com" name="shop" id="shop"  class="login-page-input">
+                                    <h3 class="alert-warning"><strong>Oops !</strong> Request Not Verified! Please restart the
+                                        app from apps listing in admin panel.</h3>
+                                    <div class="text-center">
+                                        <button class="install-btn" type="submit">Login or Install <i
+                                                class="fa-solid fa-download fa ms-2"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            @endif
+                            @if(!isset($login_section_not_required))
+                            <p class="login-title">Are you using Safari or google chrome incognito mode? Please upgrade to
+                                your latest version for safari while enable cookies for third party app in google chrome
+                                settings.</p>
+                            @endif
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </body>
 </html>

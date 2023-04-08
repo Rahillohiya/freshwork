@@ -1,5 +1,118 @@
-.loginWrapper{
-    background: url("../images/bg-img.png") no-repeat;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.mt-3 {
+    margin-top: 1rem!important;
+}
+.py-5 {
+    padding-top: 3rem!important;
+    padding-bottom: 3rem!important;
+}
+.mt-4 {
+    margin-top: 1.5rem!important;
+}
+
+.bg-images {
+    background-image: url(images/bg-img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
     background-size: cover;
-    background-position: center center;
+    
+}
+.login-from img{
+    width: 199px;
+}
+.login-from h3{
+    font-size: 20px;
+    color: #000;
+    font-weight: 800;
+    margin-top: 20px;
+}
+.login-from p{
+   font-size: 17px;
+   color: #999999;
+}
+.login-page-input {
+    width: 100%;
+    background-color: #fff;
+    padding: 15px 20px;
+    border: 0;
+    outline: 0;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid  rgb(41 99 112 / 22%);
+}
+.install-btn {
+    display: inline-block;
+    background-color: #0b460b;
+    padding: 12px 35px;
+    border: 0;
+    outline: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 9px;
+    margin: 10;
+    margin-top: 10px;
+    transition: all .6s;
+}
+.install-btn:hover{
+    background-color: #398439;
+}
+.alert-warning {
+    font-size: 15px;
+    font-weight: 400;
+    color: #5e5e5e;
+    margin: 15px 0;
+}
+.login-inner{
+    background-color: #fff;
+    padding: 50px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+}
+.icon-inner {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    padding: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .6s;
+    margin: 10px;
+}
+.login-title{
+    font-size: 15px;
+    color: #999999;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.icon-title h3 {
+    font-size: 18px;
+    color: #398439;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+}
+.icon-inner:hover{
+    transform: translateY(-10px);
+}
+.d-flex{
+    display: flex;
 }
