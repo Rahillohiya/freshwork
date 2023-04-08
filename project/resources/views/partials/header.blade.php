@@ -2,7 +2,7 @@
         <div class="logo-menuBars">
             <a href="#" class="icon-menu"> <i class="fal fa-bars"></i></a>
             <div class="logoText">
-                <a href="{{ route("dashboard") }}"><img src="{{ asset('cdn/icon-125x125.jpg') }}" alt="/"></a>
+                <a href="{{ route("dashboard") }}"><img src="{{ asset('assets/images/freshworks.png') }}" alt="/"></a>
                 <h4>Connectify</h4>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <nav id="nav">
             <a href="#" class="icon-menu"> <i class="fal fa-close"></i></a>
             <div class="logoText">
-                <a href="{{ route("dashboard") }}"><img src="{{ asset('cdn/icon-125x125.jpg') }}" alt="/"></a>
+                <a href="{{ route("dashboard") }}"><img src="{{ asset('assets/images/freshworks.png') }}" alt="/"></a>
                 <h4>Connectify</h4>
             </div>
 

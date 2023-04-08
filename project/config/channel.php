@@ -9,7 +9,7 @@ return [
 //freshworks credential variables starts here
 
     "name" => env('channel_name', "freshworks_online"),
-    "icon_path" => env('channel_icon_path',  ''),
+    "icon_path" => env('channel_icon_path',  'https://freshwork.connectify.co/assets/images/freshworks.png'),
     "details" => env('channel_details', "Forward fw-app data to your Freshworks."),
     "is_channel_account_editable" => env('channel_is_channel_account_editable', true),
     "custom_app_option" => env('channel_custom_app_option', true),
