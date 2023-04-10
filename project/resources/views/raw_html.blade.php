@@ -6,7 +6,7 @@
                 <div class="icon-menu"> <i class="fa fa-bars" aria-hidden="true"></i></div>
                 <div class="logoText">
                     <img src="assets/webhook_app/img/site-logo.jpg" alt="/">
-                    <h4>Connectify</h4>
+                    <h4>Freshworks</h4>
                 </div>
             </div>
             <div class="notification-bar">

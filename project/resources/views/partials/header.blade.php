@@ -3,7 +3,7 @@
             <a href="#" class="icon-menu"> <i class="fal fa-bars"></i></a>
             <div class="logoText">
                 <a href="{{ route("dashboard") }}"><img src="{{ asset('assets/images/freshworks.png') }}" alt="/"></a>
-                <h4>Connectify</h4>
+                <h4>Freshworks</h4>
             </div>
         </div>
         {{--@if(\Request::route()->getName()=="dashboard")
@@ -24,7 +24,7 @@
             <a href="#" class="icon-menu"> <i class="fal fa-close"></i></a>
             <div class="logoText">
                 <a href="{{ route("dashboard") }}"><img src="{{ asset('assets/images/freshworks.png') }}" alt="/"></a>
-                <h4>Connectify</h4>
+                <h4>Freshworks</h4>
             </div>
 
             <ul>
