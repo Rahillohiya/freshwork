@@ -2153,12 +2153,12 @@ body{
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    border: 1px solid #008060;
+    border: 1px solid #fff;
     border-radius: 50%;
     margin-right: 12px;
     width: 40px;
     height: 40px;
-    color: #008060;
+    color: #fff;
 }
 .user-profile p {
     margin: 0;
@@ -3040,17 +3040,73 @@ body{
     line-height: 34px !important;
 }
 
-#nav ul li.active-menu a {
-    background: rgb(0 128 96 / 65%) !important;
-    color: #ffffff !important;
-}
 #nav ul li a {
     display: block !important;
     padding: 10px 20px !important;
     color: #ffffff !important;
-    border-radius: 8px !important;
+    border-radius: 0 !important;
 }
 .site-header {
-    background: #000 !important;
+    background: #047467 !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+#nav ul li a{
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #fff !important !important;
+    font-family: 'Nunito', sans-serif !important;
+    padding: 20px !important !important;
+    position: relative !important;
+}
+
+#nav ul li a:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #FEFEFE;
+    transform-origin: bottom left;
+    transition: transform 0.5s ease;
+    transform: scaleX(0);
+}
+
+#nav ul li a:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+#nav ul li.active-menu a::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+#main .mainbox-top{
+    background: #047467 !important;
+}
+.mainbox-top .banner-text h1{
+    color: #ffffff !important;
+}
+.mainbox-top .icon-list .icon-box {
+    border: 1px solid #fff !important;
+}
+
+.new_list_icon .card .icon-list.small li:first-child{
+    margin-right: 25px;
+}
+.new_list_icon .card .icon-list li:after{
+        left: calc(100% + 12px);
+}
+.new_list_icon .card .icon-list.small .icon-box{
+    padding: 10px !important;
+    width: auto;
+    height: auto;
+    background: #ddd;
+}
+.new_list_icon .mainbox {
+        transition: all 0.5s;
+}
+.new_list_icon .mainbox:hover {
+    transform: translatey(-10px);
 }

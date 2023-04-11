@@ -1,37 +1,26 @@
 @extends('layouts.master')
 @section('content')
-
     <main id="main">
-
-
             <div class="banner">
                 <div class="container">
-                    <div class="mainbox">
+                    <div class="mainbox mainbox-top">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="banner-text text-center">
                                     <h1>Connect & automate workflows between store and other platforms </h1>
-{{--                                    <p class="mb-5">{{ count($channels)-(count($channels)%5) }}+ platform integrations, with opportunities for more.</p>--}}
-                                    <ul class="icon-list">
-                                        <li>
-                                            <div class="icon-box">
-                                                <img src="{{ config('channel.icon_path') }}" style="max-width: 30px" />
-                                            </div>
-                                        </li>
-                                        <li>
-{{--                                            <div class="btn">{{ count($channels)-(count($channels)%5) }}+ Connectors </div>--}}
-                                        </li>
-                                    </ul>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ asset('icons/5990697.png') }}" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <section class="section">
+            <section class="section ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             @if(count($register_webhooks))
                                 <div class="mainbox mb-4">
                                     <div class="row">
@@ -78,15 +67,17 @@
                                 </div>
                             @endif
                             @if(count($favorites))
+                                <h3>Quickly Connect</h3>
+                                <div class="row new_list_icon mt-4">
+                                @foreach($favorites as $favorite)
+                                <div class="col-sm-4">
                                 <div class="mainbox">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h5>Quickly Connect</h5>
-
                                             <div id="favorites">
-                                                @foreach($favorites as $favorite)
-                                                    <div class="card horizontally">
-                                                        <div class="card-body">
+                                                
+                                                    <div class="card">
+                                                        <div class="card-body text-center" style="background: transparent;">
                                                             <ul class="icon-list small">
                                                                 <li>
                                                                     <div class="icon-box">
@@ -99,101 +90,111 @@
                                                                     </div>
                                                                 </li>
                                                             </ul>
-                                                            <p>{{ $favorite->message }} <a href="#">{{ ucwords(str_replace('_', ' ', config('channel.name'))) }}</a> </p>
+                                                            <h4 class="mt-3 mb-3">{{ $favorite->message }} <a href="#">{{ ucwords(str_replace('_', ' ', config('channel.name'))) }}</a></h4>
                                                             <a href="{{ route('channel_config', [$favorite->webhook_event->slug]) }}" class="btn ">Try it</a>
                                                         </div>
                                                     </div>
-                                                @endforeach
-                                            </div>
-                                            <div class="overflow-hidden">
-                                                <a class="btn d-block" href="{{ route('automate') }}">View All</a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                </div>
+                                @endforeach
+                                <div class="overflow-hidden  text-center mt-4">
+                                    <a class="btn" href="{{ route('automate') }}">View All</a>
+                                </div>
                                 </div>
                             @endif
                         </div>
-                        <div class="col-lg-4">
-                            <div class="mainbox mb-4">
-                                <div class="YourplanCard p-0 bg-transparent">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="mb-3 font-16">Your Plan</h4>
-                                        <div class="mb-3">
-                                            <a href="{{ route('plans_listing') }}" class="btn font-12">Upgrade your Plan <i class="fas fa-angle-right"></i> </a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6 py-3">
-                                            <h6 class="font-14">Plan</h6>
-                                            <div>
-                                                    <span class="tag">
-                                                        {{ ucfirst($shop->current_plan_type) }}
-                                                    </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 py-3">
-                                            <h6 class="font-14">Next Billing Date</h6>
-                                            {{ $plan_history_next_date }}
-                                        </div>
-                                        <div class="col-lg-6 py-3">
-                                            <h6 class="font-14">Price</h6>
-                                            ${{ $shop->current_plan_type == 'elite' ? 29 : ($shop->current_plan_type == 'professional' ? 19 : 0) }}
-                                        </div>
-                                        <div class="col-lg-6 py-3">
-                                            <h6 class="font-14">Tasks per month </h6>
-                                            {{ number_format($allowed_webhooks_tasks) }} per month
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mainbox  mb-4">
-                                <div class="YourplanCard p-0 bg-transparent">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="mb-3 font-16">Usage</h4>
-                                        <div class="mb-3">
-                                            <div class="text-muted">Resets on {{ $plan_history_next_date }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
+                        <div class="col-lg-12 mt-3">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mainbox mb-4">
+                                        <div class="YourplanCard p-0 bg-transparent">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="fst-normal mt-3"><strong>{{ $processed_webhooks }}</strong> of {{ $allowed_webhooks_tasks }} automations used</p>
+                                                <h4 class="mb-3 font-16">Your Plan</h4>
+                                                <div class="mb-3">
+                                                    <a href="{{ route('plans_listing') }}" class="btn font-12">Upgrade your Plan <i class="fas fa-angle-right"></i> </a>
+                                                </div>
                                             </div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: {{ $allowed_webhooks_tasks ? ($processed_webhooks/$allowed_webhooks_tasks)*100 : 0 }}%" aria-valuenow="{{ $processed_webhooks }}" aria-valuemin="0" aria-valuemax="{{ $allowed_webhooks_tasks }}"></div>
+                                            <div class="row">
+                                                <div class="col-lg-6 py-3">
+                                                    <h6 class="font-14">Plan</h6>
+                                                    <div>
+                                                            <span class="tag">
+                                                                {{ ucfirst($shop->current_plan_type) }}
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 py-3">
+                                                    <h6 class="font-14">Next Billing Date</h6>
+                                                    {{ $plan_history_next_date }}
+                                                </div>
+                                                <div class="col-lg-6 py-3">
+                                                    <h6 class="font-14">Price</h6>
+                                                    ${{ $shop->current_plan_type == 'elite' ? 29 : ($shop->current_plan_type == 'professional' ? 19 : 0) }}
+                                                </div>
+                                                <div class="col-lg-6 py-3">
+                                                    <h6 class="font-14">Tasks per month </h6>
+                                                    {{ number_format($allowed_webhooks_tasks) }} per month
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mainbox">
-                                <div class="card mb-5">
-                                    <div class="card-body p-0 bg-transparent">
-                                        <ul class="icon-list">
-                                            <li>
-                                                <div class="icon-box" widhth="50">
-                                                    <img src="{{ asset('icons/shopify_icon.png') }}">
+                                <div class="col-lg-4">
+                                    <div class="mainbox  mb-4">
+                                        <div class="YourplanCard p-0 bg-transparent">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h4 class="mb-3 font-16">Usage</h4>
+                                                <div class="mb-3">
+                                                    <div class="text-muted">Resets on {{ $plan_history_next_date }}</div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon-box">
-                                                    <img src="{{ asset('icons/freshworks_online.png') }}" style="max-width: 40px">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="fst-normal mt-3"><strong>{{ $processed_webhooks }}</strong> of {{ $allowed_webhooks_tasks }} automations used</p>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: {{ $allowed_webhooks_tasks ? ($processed_webhooks/$allowed_webhooks_tasks)*100 : 0 }}%" aria-valuenow="{{ $processed_webhooks }}" aria-valuemin="0" aria-valuemax="{{ $allowed_webhooks_tasks }}"></div>
+                                                    </div>
                                                 </div>
-                                            </li>
-                                        </ul>
-                                        <div class="text-center">
-                                            <h5 class="text-blue my-3">Discover all the possible integrations for Shopify</h5>
-                                            <a href="{{ route('automate') }}" class="btn">Discover</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 mb-5">
-                                        <div class="card">
-                                            <div class="card-body  p-0 bg-transparent">
-                                                <h6>Request An Integration</h6>
-                                                <p>Can't find the software you're looking for? Dont't worry! We're constantly adding new intergrations based on our customer's requests. </p>
-                                                <a target="_blank" href="mailto:support@connectify.co">Request an Integration</a>
+                                <div class="col-lg-4">
+                                    <div class="mainbox">
+                                        <div class="card mb-5">
+                                            <div class="card-body p-0 bg-transparent">
+                                                <ul class="icon-list">
+                                                    <li>
+                                                        <div class="icon-box" widhth="50">
+                                                            <img src="{{ asset('icons/shopify_icon.png') }}">
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon-box">
+                                                            <img src="{{ asset('icons/freshworks_online.png') }}" style="max-width: 40px">
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="text-center">
+                                                    <h5 class="text-blue my-3">Discover all the possible integrations for Shopify</h5>
+                                                    <a href="{{ route('automate') }}" class="btn">Discover</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 mb-5">
+                                                <div class="card">
+                                                    <div class="card-body  p-0 bg-transparent">
+                                                        <h6>Request An Integration</h6>
+                                                        <p>Can't find the software you're looking for? Dont't worry! We're constantly adding new intergrations based on our customer's requests. </p>
+                                                        <a target="_blank" href="mailto:support@connectify.co">Request an Integration</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
