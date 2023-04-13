@@ -93,10 +93,10 @@ class FreshworksEventsManagementController extends Controller
         } catch (\Exception $e) {
 
             $error_msg = $e->getMessage();
-            return response()->json(['code' => 422, 'status' => 'error',
+            return response()->json(['code' => 401, 'status' => 'error',
                 'message' => $error_msg, 'errors' => [['message' => $error_msg]],
                 'data' => new \stdClass()
-            ], 422);
+            ], 401);
         }
     }
 

@@ -17,7 +17,7 @@ class VerifyShopifyRequest
     public function handle($request, Closure $next)
     {
         if (!Shopify::verifyWebHook($request->getContent(), $request->server('HTTP_X_SHOPIFY_HMAC_SHA256'))) {
-            return response()->json(['error' => 1, 'message' => 'Unverified Request'],422);
+            return response()->json(['error' => 1, 'message' => 'Unverified Request'],401);
         }
         return $next($request);
     }

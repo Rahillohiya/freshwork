@@ -70,7 +70,7 @@ class WebhookReceiverController extends Controller
             return response()->json(array('success' => true, 'shop_id' => $request->shop_id, 'message' => "We'll contact you shortly."), 200);
 
         } catch (\Exception $e) {
-            return response()->json(array('success' => false, 'message' => "error processing your request."), 422);
+            return response()->json(array('success' => false, 'message' => "error processing your request."), 401);
         }
 
 
